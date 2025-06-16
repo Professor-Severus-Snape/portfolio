@@ -1,0 +1,23 @@
+.menu
+  display: none
+
+  &__item
+    text-transform: uppercase
+    color: $text-color
+
+    &_active
+      color: $accent-color
+
+  &__link
+    &:hover
+      cursor: pointer
+      text-decoration-line: underline
+      text-decoration-color: $accent-color
+      text-decoration-thickness: 2px
+
+  @media (min-width: 768px)
+    display: flex
+    gap: 15px
+
+  @media (min-width: 1440px)
+    gap: 50px

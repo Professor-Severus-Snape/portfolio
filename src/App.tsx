@@ -1,5 +1,11 @@
+import TopContainer from './components/TopContainer';
+
 const App = () => {
-  return <div>My website is coming!</div>;
+  return (
+    <>
+      <TopContainer />
+    </>
+  );
 };
 
 export default App;
