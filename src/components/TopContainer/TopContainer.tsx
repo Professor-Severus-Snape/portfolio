@@ -6,8 +6,8 @@ import './topContainer.sass';
 const TopContainer = () => {
   return (
     <div className="top-container">
-      <Logo />
-      <Menu />
+      <Logo accentColor="black" />
+      <Menu variant="header" />
       <Burger />
     </div>
   );

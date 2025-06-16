@@ -1,8 +1,13 @@
 import { useCallback } from 'react';
-import logo from '../../assets/logo.svg';
+import logoWhite from '@/assets/logo-white.svg';
+import logoBlack from '@/assets/logo-black.svg';
 import './logo.sass';
 
-const Logo = () => {
+interface ILogoProps {
+  accentColor: 'white' | 'black';
+}
+
+const Logo = ({ accentColor }: ILogoProps) => {
   const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     // убираем перезагрузку страницы:
     e.preventDefault();
@@ -18,7 +23,11 @@ const Logo = () => {
   return (
     // import.meta.env.BASE_URL - роут будет взят из конфига Vite (не используем React Router)
     <a href={import.meta.env.BASE_URL} className="logo" onClick={handleClick}>
-      <img className="logo__img" src={logo} alt="logo" />
+      <img
+        className="logo__img"
+        src={accentColor === 'white' ? logoWhite : logoBlack}
+        alt="logo"
+      />
     </a>
   );
 };

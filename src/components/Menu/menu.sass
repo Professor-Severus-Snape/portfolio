@@ -1,5 +1,51 @@
+@keyframes slideIn
+  from
+    transform: translateX(100%)
+    opacity: 0
+
+  to
+    transform: translateX(0)
+    opacity: 1
+
 .menu
+  position: relative
+
   display: none
+
+  &_mobile
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 99
+
+    display: block
+
+    .menu__list
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      gap: 50px
+
+      padding: 50px
+
+      overflow-y: auto
+      background-color: #dddddd
+
+      animation: slideIn 0.3s ease forwards
+
+  &__list
+    @media (min-width: 768px)
+      display: flex
+      justify-content: space-between
+      gap: 15px
+
+      background-color: #ffffff
+
+    @media (min-width: 1440px)
+      gap: 50px
 
   &__item
     text-transform: uppercase
@@ -15,9 +61,23 @@
       text-decoration-color: $accent-color
       text-decoration-thickness: 2px
 
-  @media (min-width: 768px)
-    display: flex
-    gap: 15px
+  &__close
+    position: absolute
+    top: 20px
+    right: 15px
 
-  @media (min-width: 1440px)
-    gap: 50px
+    width: 35px
+    height: 35px
+
+    background-color: transparent
+    background-image: url('@/assets/close-black.svg')
+    background-repeat: no-repeat
+
+    animation: slideIn 0.3s ease forwards
+
+    &:hover
+      cursor: pointer
+      background-image: url('@/assets/close-red.svg')
+
+  @media (min-width: 768px)
+    display: block
