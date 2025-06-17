@@ -1,0 +1,31 @@
+.socials
+  display: flex
+  justify-content: space-between
+  gap: 20px
+
+  &__link
+    width: 45px
+    height: 45px
+    border-radius: 50%
+
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+
+    cursor: pointer
+
+    &_email
+      background-image: url('@/assets/svg/email.svg')
+
+    &_telegram
+      background-image: url('@/assets/svg/telegram.svg')
+
+    &_vk
+      background-image: url('@/assets/svg/vk.svg')
+
+    &_github
+      background-image: url('@/assets/svg/github.svg')
+
+    @media (min-width: 768px)
+      width: 60px
+      height: 60px

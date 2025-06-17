@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "author": "professor-severus-snape",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "globals": "16.2.0",
     "sass": "1.89.2",
     "typescript": "5.8.3",
-    "typescript-eslint": "8.34.0",
+    "typescript-eslint": "8.34.1",
     "vite": "6.3.5"
   }
 }

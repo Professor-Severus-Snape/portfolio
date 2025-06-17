@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import logoWhite from '@/assets/logo-white.svg';
-import logoBlack from '@/assets/logo-black.svg';
+import logoWhite from '@/assets/svg/logo-white.svg';
+import logoBlack from '@/assets/svg/logo-black.svg';
 import './logo.sass';
 
 interface ILogoProps {

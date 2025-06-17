@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useAppSelector } from '@/hooks/useAppSelector';
@@ -15,6 +15,14 @@ interface IMenuProps {
   variant: 'header' | 'footer';
 }
 
+const menuItems = [
+  { text: 'главная', href: 'home' },
+  { text: 'обо мне', href: 'about' },
+  { text: 'навыки', href: 'skills' },
+  { text: 'мои работы', href: 'projects' },
+  { text: 'контакты', href: 'contacts' },
+];
+
 const Menu = ({ variant }: IMenuProps) => {
   const notMobile = useMediaQuery({ minWidth: 768 }); // отслеживаем переход через брейкпоинт 768px
 
@@ -29,18 +37,7 @@ const Menu = ({ variant }: IMenuProps) => {
     }
   }, [isOpen, notMobile, dispatch]);
 
-  const isHeader = useMemo(() => variant === 'header', [variant]);
-
-  const menuItems = useMemo(
-    () => [
-      { text: 'главная', href: 'home' },
-      { text: 'обо мне', href: 'about' },
-      { text: 'навыки', href: 'skills' },
-      { text: 'мои работы', href: 'projects' },
-      { text: 'контакты', href: 'contacts' },
-    ],
-    []
-  );
+  const isHeader = variant === 'header';
 
   const handleClick = useCallback(
     (index: number) => {
@@ -66,17 +63,19 @@ const Menu = ({ variant }: IMenuProps) => {
       })}
     >
       <ul className="menu__list">
-        {menuItems.map((item, idx) => (
+        {menuItems.map(({ text, href }, idx) => (
           <li
-            key={idx}
+            key={href}
             className={classNames('menu__item', {
               menu__item_active: currentItemIndex === idx && isHeader,
             })}
-            onClick={() => handleClick(idx)}
           >
-            {/* FIXME: временная заглушка в href: */}
-            <a className="menu__link" href="#0">
-              {item.text}
+            <a
+              className="menu__link"
+              href={`#${href}`}
+              onClick={() => handleClick(idx)}
+            >
+              {text}
             </a>
           </li>
         ))}
