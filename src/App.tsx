@@ -1,10 +1,10 @@
-import Footer from '@/components/Footer';
-import TopContainer from '@/components/TopContainer';
+import Footer from '@/components/layout/Footer';
+import TopBar from '@/components/layout/TopBar';
 
 const App = () => {
   return (
     <>
-      <TopContainer />
+      <TopBar />
       <Footer />
     </>
   );

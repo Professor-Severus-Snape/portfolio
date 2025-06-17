@@ -1,8 +1,8 @@
-import Line from '../Line';
-import Logo from '../Logo';
-import Menu from '../Menu';
-import Socials from '../Socials';
-import Year from '../Year';
+import Line from '@/components/ui/Line';
+import Logo from '@/components/ui/Logo';
+import Menu from '@/components/ui/Menu';
+import Socials from '@/components/ui/Socials';
+import Year from '@/components/ui/Year';
 import './footer.sass';
 
 const Footer = () => {
