@@ -1,0 +1,23 @@
+.skills
+  padding-top: 20px
+  padding-bottom: 20px
+  background: linear-gradient(135deg, $bg-color 0%, $accent-color 100%)
+
+  &__container
+    display: flex
+    flex-direction: column
+    gap: 20px
+
+    +container
+
+  &__list
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: 20px
+
+    padding-top: 20px
+    padding-bottom: 40px
+
+    @media (min-width: 768px)
+      gap: 60px 30px
