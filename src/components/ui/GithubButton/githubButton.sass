@@ -1,0 +1,13 @@
+.github-button
+  align-self: center
+  +button(9px, 15px 9px)
+
+  &__icon
+    +button-icon(20px, '@/assets/svg/github-white.svg')
+
+  &:hover
+    transform: scale(1.05)
+
+  @media (min-width: 768px)
+    gap: 20px
+    padding: 20px 30px
