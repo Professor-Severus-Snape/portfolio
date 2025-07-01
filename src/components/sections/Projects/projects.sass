@@ -1,7 +1,5 @@
 .projects
-  display: flex
-  flex-direction: column
-  gap: 20px
+  +flex-column
 
   padding-top: 20px
   padding-bottom: 20px
@@ -11,7 +9,7 @@
   &__list
     display: grid
     grid-template-columns: 1fr
-    gap: 20px
+    gap: $primary-gap
 
     @media (min-width: 768px)
       grid-template-columns: repeat(2, 1fr)

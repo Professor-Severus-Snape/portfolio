@@ -4,17 +4,13 @@
   background: linear-gradient(135deg, $bg-color 0%, $accent-color 100%)
 
   &__container
-    display: flex
-    flex-direction: column
-    gap: 20px
-
+    +flex-column
     +container
 
   &__list
-    display: flex
+    +flex-row
     flex-wrap: wrap
     justify-content: center
-    gap: 20px
 
     padding-top: 20px
     padding-bottom: 40px

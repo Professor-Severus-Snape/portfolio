@@ -1,7 +1,5 @@
 .project
-  display: flex
-  flex-direction: column
-  gap: 20px
+  +flex-column
 
   padding: 20px
   border-radius: 25px
@@ -25,18 +23,15 @@
     box-shadow: $main-shadow
 
   &__footer
-    display: flex
+    +flex-row
     flex-wrap: wrap
     justify-content: center
-    gap: 20px
 
     @media (min-width: 768px)
       gap: 30px
 
   &__btns
-    display: flex
-    flex-direction: column
-    gap: 20px
+    +flex-column
     flex-shrink: 0 // чтобы текст в кнопках не переносился
 
     @media (min-width: 384px)
@@ -65,5 +60,4 @@
     margin-left: auto
 
     font-weight: 500
-    font-size: 16px
     color: $primary-color

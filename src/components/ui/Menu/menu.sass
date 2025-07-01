@@ -28,16 +28,13 @@
     overflow-y: auto
 
     .menu__list
-      display: flex
-      flex-direction: column
+      +flex-column(50px)
       align-items: center
-      gap: 50px
 
   &__list
     @media (min-width: 768px)
-      display: flex
+      +flex-row(15px)
       justify-content: space-between
-      gap: 15px
 
       background-color: #ffffff
 

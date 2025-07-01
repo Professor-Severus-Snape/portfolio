@@ -4,10 +4,8 @@
   background-color: #12141e
 
   &__container
-    display: flex
-    flex-direction: column
+    +flex-column
     align-items: center
-    gap: 20px
 
     +container
 
@@ -19,10 +17,8 @@
     display: block
 
     &__list
-      display: flex
-      flex-direction: column
+      +flex-column
       align-items: center
-      gap: 20px
 
       background-color: transparent
 
@@ -36,9 +32,8 @@
       font-weight: 500
 
       @media (min-width: 768px)
-        display: flex
+        +flex-row
         align-items: center
-        gap: 20px
 
         &:not(:last-child)::after
           content: ''
