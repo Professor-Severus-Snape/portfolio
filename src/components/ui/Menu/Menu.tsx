@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useAppSelector } from '@/hooks/useAppSelector';
@@ -11,19 +11,12 @@ import {
   selectIsOpen,
   setCurrentItemIndex,
 } from '@/redux/menuSlice';
+import menuItems from '@/data/menu.json';
 import './menu.sass';
 
 interface IMenuProps {
   variant: 'header' | 'footer';
 }
-
-const menuItems = [
-  { text: 'главная', href: 'home' },
-  { text: 'обо мне', href: 'about' },
-  { text: 'навыки', href: 'skills' },
-  { text: 'мои работы', href: 'projects' },
-  { text: 'контакты', href: 'contacts' },
-];
 
 const Menu = ({ variant }: IMenuProps) => {
   const notMobile = useMediaQuery({ minWidth: 768 }); // отслеживаем переход через брейкпоинт 768px
@@ -33,6 +26,8 @@ const Menu = ({ variant }: IMenuProps) => {
   const currentItemIndex = useAppSelector(selectCurrentItemIndex);
 
   const topBarHeight = useTopBarHeight(); // получаем высоту топбара в зависимости от вьюпорта
+
+  const anchors = useMemo(() => menuItems.map((item) => item.anchor), []);
 
   const isHeader = variant === 'header';
 
@@ -57,7 +52,7 @@ const Menu = ({ variant }: IMenuProps) => {
       }
 
       // находим элемент, к которому необходимо выполнить скролл:
-      const id = menuItems[index].href;
+      const id = menuItems[index].anchor;
       const element = document.getElementById(id);
       if (!element) return;
 
@@ -78,10 +73,7 @@ const Menu = ({ variant }: IMenuProps) => {
   );
 
   // отслеживание прокрутки страницы (событие 'scroll' на window) через кастомный хук:
-  useScrollActiveSection(
-    menuItems.map((item) => item.href),
-    currentItemIndex
-  );
+  useScrollActiveSection(anchors);
 
   // закрытие мобильного меню (если оно было открыто) при ширине экрана >= 768px
   useEffect(() => {
@@ -97,16 +89,16 @@ const Menu = ({ variant }: IMenuProps) => {
       })}
     >
       <ul className="menu__list">
-        {menuItems.map(({ text, href }, idx) => (
+        {menuItems.map(({ text, anchor }, idx) => (
           <li
-            key={href}
+            key={anchor}
             className={classNames('menu__item', {
               menu__item_active: currentItemIndex === idx && isHeader,
             })}
           >
             <a
               className="menu__link"
-              href={`#${href}`}
+              href={`#${anchor}`}
               onClick={(e) => handleClick(e, idx)}
             >
               {text}

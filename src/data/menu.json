@@ -1,0 +1,7 @@
+[
+  { "text": "главная", "anchor": "home" },
+  { "text": "обо мне", "anchor": "about" },
+  { "text": "навыки", "anchor": "skills" },
+  { "text": "мои работы", "anchor": "projects" },
+  { "text": "контакты", "anchor": "contacts" }
+]
