@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo } from 'react';
+import { useLockBodyScroll } from 'react-use';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useAppSelector } from '@/hooks/useAppSelector';
@@ -31,10 +32,18 @@ const Menu = ({ variant }: IMenuProps) => {
 
   const isHeader = variant === 'header';
 
-  // закрытие меню по клику на крестик:
-  const handleClose = useCallback(() => {
-    dispatch(closeMenu());
-  }, [dispatch]);
+  // блокировка скролла для body при открытом мобильном меню:
+  useLockBodyScroll(isOpen && isHeader);
+
+  // отслеживание прокрутки страницы (событие 'scroll' на window) через кастомный хук:
+  useScrollActiveSection(anchors);
+
+  // закрытие мобильного меню (если оно было открыто) при ширине экрана >= 768px
+  useEffect(() => {
+    if (isOpen && notMobile) {
+      dispatch(closeMenu());
+    }
+  }, [isOpen, notMobile, dispatch]);
 
   // обработка клика по пункту меню:
   const handleClick = useCallback(
@@ -72,15 +81,10 @@ const Menu = ({ variant }: IMenuProps) => {
     [currentItemIndex, dispatch, isOpen, topBarHeight]
   );
 
-  // отслеживание прокрутки страницы (событие 'scroll' на window) через кастомный хук:
-  useScrollActiveSection(anchors);
-
-  // закрытие мобильного меню (если оно было открыто) при ширине экрана >= 768px
-  useEffect(() => {
-    if (isOpen && notMobile) {
-      dispatch(closeMenu());
-    }
-  }, [isOpen, notMobile, dispatch]);
+  // закрытие меню по клику на крестик:
+  const handleClose = useCallback(() => {
+    dispatch(closeMenu());
+  }, [dispatch]);
 
   return (
     <nav

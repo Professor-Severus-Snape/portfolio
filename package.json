@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "type": "module",
   "author": "professor-severus-snape",
   "license": "MIT",
@@ -17,7 +17,8 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-redux": "^9.2.0",
-    "react-responsive": "^10.0.1"
+    "react-responsive": "^10.0.1",
+    "react-use": "^17.6.0"
   },
   "devDependencies": {
     "@eslint/js": "9.30.1",
