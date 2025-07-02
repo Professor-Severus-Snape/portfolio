@@ -3,6 +3,8 @@ import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
+import useTopBarHeight from '@/hooks/useTopBarHeight';
+import useScrollActiveSection from '@/hooks/useScrollActiveSection';
 import {
   closeMenu,
   selectCurrentItemIndex,
@@ -30,31 +32,63 @@ const Menu = ({ variant }: IMenuProps) => {
   const isOpen = useAppSelector(selectIsOpen);
   const currentItemIndex = useAppSelector(selectCurrentItemIndex);
 
-  useEffect(() => {
-    if (isOpen && notMobile) {
-      // закрываем мобильное меню (если оно было открыто) при ширине экрана >= 768px
-      dispatch(closeMenu());
-    }
-  }, [isOpen, notMobile, dispatch]);
+  const topBarHeight = useTopBarHeight(); // получаем высоту топбара в зависимости от вьюпорта
 
   const isHeader = variant === 'header';
 
+  // закрытие меню по клику на крестик:
+  const handleClose = useCallback(() => {
+    dispatch(closeMenu());
+  }, [dispatch]);
+
+  // обработка клика по пункту меню:
   const handleClick = useCallback(
-    (index: number) => {
+    (event: React.MouseEvent<HTMLAnchorElement>, index: number) => {
+      event.preventDefault(); // предотвращаем перезагрузку страницы
+
+      // если кликнули по неактивному пункту меню, то делаем его активным:
       if (currentItemIndex !== index) {
         dispatch(setCurrentItemIndex(index));
       }
 
+      // закрываем меню, если оно было открыто:
       if (isOpen) {
         dispatch(closeMenu());
       }
+
+      // находим элемент, к которому необходимо выполнить скролл:
+      const id = menuItems[index].href;
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      // абсолютная позиция нужного элемента относительно всей страницы:
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+
+      // место, к которому скроллим, с учётом высоты топбара + 1px для надёжности:
+      const scrollToPosition = elementPosition - topBarHeight + 1;
+
+      // плавно скроллим:
+      window.scrollTo({
+        top: scrollToPosition,
+        behavior: 'smooth',
+      });
     },
-    [currentItemIndex, isOpen, dispatch]
+    [currentItemIndex, dispatch, isOpen, topBarHeight]
   );
 
-  const handleClose = useCallback(() => {
-    dispatch(closeMenu());
-  }, [dispatch]);
+  // отслеживание прокрутки страницы (событие 'scroll' на window) через кастомный хук:
+  useScrollActiveSection(
+    menuItems.map((item) => item.href),
+    currentItemIndex
+  );
+
+  // закрытие мобильного меню (если оно было открыто) при ширине экрана >= 768px
+  useEffect(() => {
+    if (isOpen && notMobile) {
+      dispatch(closeMenu());
+    }
+  }, [isOpen, notMobile, dispatch]);
 
   return (
     <nav
@@ -73,7 +107,7 @@ const Menu = ({ variant }: IMenuProps) => {
             <a
               className="menu__link"
               href={`#${href}`}
-              onClick={() => handleClick(idx)}
+              onClick={(e) => handleClick(e, idx)}
             >
               {text}
             </a>

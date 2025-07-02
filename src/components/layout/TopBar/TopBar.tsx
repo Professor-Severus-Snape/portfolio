@@ -6,9 +6,11 @@ import './topBar.sass';
 const TopBar = () => {
   return (
     <div className="top-bar">
-      <Logo accentColor="black" />
-      <Menu variant="header" />
-      <Burger />
+      <div className="top-bar__container">
+        <Logo accentColor="black" />
+        <Menu variant="header" />
+        <Burger />
+      </div>
     </div>
   );
 };

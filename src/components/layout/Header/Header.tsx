@@ -6,7 +6,7 @@ import './header.sass';
 
 const Header = () => {
   return (
-    <header className="header">
+    <header id="home" className="header">
       <div className="header__container">
         <div className="header__left-wrapper">
           <TitleH1 />
