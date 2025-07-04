@@ -1,11 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
-import { setCurrentItemIndex } from '@/redux/menuSlice';
-import useTopBarHeight from '@/hooks/useTopBarHeight';
-import { useAppSelector } from '@/hooks/useAppSelector';
-import { selectCurrentItemIndex } from '@/redux/menuSlice';
+import { useAppDispatch, useAppSelector, useTopBarHeight } from '@/hooks';
+import { selectCurrentItemIndex, setCurrentItemIndex } from '@/redux/menuSlice';
 
-const useScrollActiveSection = (anchors: string[]) => {
+export const useScrollActiveSection = (anchors: string[]) => {
   const dispatch = useAppDispatch();
   const topBarHeight = useTopBarHeight();
 
@@ -57,5 +54,3 @@ const useScrollActiveSection = (anchors: string[]) => {
     };
   }, [anchors, dispatch, topBarHeight]);
 };
-
-export default useScrollActiveSection;

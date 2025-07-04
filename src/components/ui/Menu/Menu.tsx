@@ -2,10 +2,12 @@ import { useCallback, useEffect, useMemo } from 'react';
 import { useLockBodyScroll } from 'react-use';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
-import { useAppSelector } from '@/hooks/useAppSelector';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
-import useTopBarHeight from '@/hooks/useTopBarHeight';
-import useScrollActiveSection from '@/hooks/useScrollActiveSection';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useTopBarHeight,
+  useScrollActiveSection,
+} from '@/hooks';
 import {
   closeMenu,
   selectCurrentItemIndex,

@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { useAppDispatch } from '@/hooks';
 import { openMenu } from '@/redux/menuSlice';
 import './burger.sass';
 

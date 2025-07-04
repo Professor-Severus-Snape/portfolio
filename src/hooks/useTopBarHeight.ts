@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 
-const useTopBarHeight = () => {
+export const useTopBarHeight = () => {
   // Вариант без useMediaQuery():
   // const isDesktop = window.matchMedia('(min-width: 1400px)').matches;
   // const isTablet = window.matchMedia('(min-width: 768px) and (max-width: 1399px)').matches;
@@ -13,5 +13,3 @@ const useTopBarHeight = () => {
   if (isTablet) return 60;
   return 75;
 };
-
-export default useTopBarHeight;
