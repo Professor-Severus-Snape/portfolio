@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/k92tjfjdjwb94lyx?svg=true)](https://ci.appveyor.com/project/Professor-Severus-Snape/portfolio)
+
 # Моё портфолио
 
 1. Данная работа представляет собой SPA (React + TypeScript).
