@@ -18,7 +18,9 @@ const Socials = () => {
             {...(text === 'email'
               ? {}
               : { target: '_blank', rel: 'noopener noreferrer' })}
-          />
+          >
+            <span className="visually-hidden">{text}</span>
+          </a>
         </li>
       ))}
     </ul>
