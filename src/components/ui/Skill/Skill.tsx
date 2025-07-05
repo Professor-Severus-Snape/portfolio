@@ -8,7 +8,7 @@ interface ISkillProps {
 const Skill = ({ src, text }: ISkillProps) => {
   return (
     <li className="skill">
-      <img className="skill__icon" src={src} alt={text} />
+      <img className="skill__icon" src={src} alt="devicon" />
       <span className="skill__text">{text}</span>
     </li>
   );
