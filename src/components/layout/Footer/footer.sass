@@ -19,7 +19,6 @@
     &__list
       +flex-column
       align-items: center
-
       background-color: transparent
 
       @media (min-width: 768px)
@@ -40,10 +39,9 @@
           display: block
           height: 26px
           width: 1.5px
-
           background-color: $accent-color
 
     &__link
-      &:hover
+      +hover-safe
         color: $accent-color
         text-decoration: none

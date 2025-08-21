@@ -1,16 +1,6 @@
 // доступ к глобальным переменным (для использования в миксинах):
 @use "@/assets/styles/_variables.sass" as *
 
-// миксин без параметров (можно не указывать пустые скобки):
-=container
-  padding-left: 15px
-  padding-right: 15px
-
-  @media (min-width: 768px)
-    max-width: 1200px
-    margin-left: auto
-    margin-right: auto
-
 // миксин с параметрами (можно задать дефолтные значения):
 =button($gap: 20px, $padding: 20px 30px)
   display: inline-flex
@@ -33,14 +23,38 @@
   background-color: transparent
   background-image: url($url)
 
-// миксин с параметром (можно задать индивидуальный gap):
-=flex-row($gap: $primary-gap)
-  display: flex
-  flex-direction: row // если надо переопределить в стилях
-  gap: $gap
+// миксин без параметров (можно не указывать пустые скобки):
+=container
+  padding-left: 15px
+  padding-right: 15px
+
+  @media (min-width: 768px)
+    max-width: 1200px
+    margin-left: auto
+    margin-right: auto
 
 // миксин с параметром (можно задать индивидуальный gap):
 =flex-column($gap: $primary-gap)
   display: flex
   flex-direction: column
   gap: $gap
+
+// миксин с параметром (можно задать индивидуальный gap):
+=flex-row($gap: $primary-gap)
+  display: flex
+  flex-direction: row // если надо переопределить в стилях
+  gap: $gap
+
+// миксин для предотвращения залипания hover на touch-устройствах:
+=hover-safe
+  @media (hover: hover)
+    body:not(.no-hover) &
+      &:hover
+        @content
+
+// миксин для корректной работы интерактивных элементов на touch-устройствах:
+=touch-safe
+  -webkit-tap-highlight-color: transparent // убирает серый/синий блик при тапе (iOS / Android)
+  -webkit-touch-callout: none // отключает всплывающее меню при долгом нажатии (iOS)
+  user-select: none // предотвращает выделение текста при случайных тапах
+  touch-action: manipulation // оптимизирует отклик на тач

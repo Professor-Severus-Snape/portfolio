@@ -1,9 +1,7 @@
 .project
   +flex-column
-
   padding: 20px
   border-radius: 25px
-
   background-color: rgba($accent-color, 0.5)
   box-shadow: $main-shadow
 
@@ -45,19 +43,16 @@
     padding: 10px
     border: 1px solid $primary-color
     border-radius: 5px
-
     font-weight: 500
     font-size: 18px
     color: $primary-color
-
     box-shadow: $main-shadow
     background-color: $bg-color
 
-    &:hover
+    +hover-safe
       transform: scale(1.05)
 
   &__date
     margin-left: auto
-
     font-weight: 500
     color: $primary-color

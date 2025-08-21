@@ -9,7 +9,6 @@
 
 .menu
   position: relative
-
   display: none
 
   &_mobile
@@ -19,10 +18,8 @@
     right: 0
     bottom: 0
     z-index: 99
-
     display: block
     padding: 50px
-
     background-color: $bg-color
     animation: slideIn 0.3s ease forwards
     overflow-y: auto
@@ -35,7 +32,6 @@
     @media (min-width: 768px)
       +flex-row(15px)
       justify-content: space-between
-
       background-color: #ffffff
 
     @media (min-width: 1440px)
@@ -49,7 +45,7 @@
       color: $accent-color
 
   &__link
-    &:hover
+    +hover-safe
       cursor: pointer
       text-decoration-line: underline
       text-decoration-color: $accent-color
@@ -59,17 +55,14 @@
     position: absolute
     top: 20px
     right: 15px
-
     width: 35px
     height: 35px
-
     background-color: transparent
     background-image: url('@/assets/svg/close-black.svg')
     background-repeat: no-repeat
-
     animation: slideIn 0.3s ease forwards
 
-    &:hover
+    +hover-safe
       cursor: pointer
       background-image: url('@/assets/svg/close-red.svg')
 
