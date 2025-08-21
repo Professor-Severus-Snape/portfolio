@@ -18,16 +18,15 @@
       width: 35px
       background-color: $primary-color
 
-  @media (hover: hover)
-    &:hover
-      .burger__line_first
-        background-color: $accent-color
+  +hover-safe
+    .burger__line_first
+      background-color: $accent-color
 
-      .burger__line_second
-        background-color: $primary-color
+    .burger__line_second
+      background-color: $primary-color
 
-      .burger__line_third
-        background-color: $accent-color
+    .burger__line_third
+      background-color: $accent-color
 
   @media (min-width: 768px)
     display: none
