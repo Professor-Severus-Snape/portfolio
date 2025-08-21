@@ -5,15 +5,19 @@
 
   &__container
     +flex-column
-
     +container
+
+    @media (min-width: 768px)
+      gap: 40px
 
   &__list
     +flex-row
     flex-wrap: wrap
     justify-content: center
-    padding-top: 20px
-    padding-bottom: 40px
 
     @media (min-width: 768px)
-      gap: 60px 30px
+      gap: 40px 30px
+
+  @media (min-width: 768px)
+    padding-top: 40px
+    padding-bottom: 40px
