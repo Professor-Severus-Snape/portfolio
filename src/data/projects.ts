@@ -49,8 +49,8 @@ const projectsList: IProjectItem[] = [
     id: 4,
     src: chat,
     title: 'Чат (WebSockets)',
-    code: 'https://github.com/Professor-Severus-Snape/AHJ_webSockets-frontend',
-    deploy: 'https://professor-severus-snape.github.io/AHJ_webSockets-frontend',
+    code: 'https://github.com/Professor-Severus-Snape/chat',
+    deploy: 'https://professor-severus-snape.github.io/chat',
     date: '10.2024',
   },
   {
