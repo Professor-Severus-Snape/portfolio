@@ -12,7 +12,6 @@
     color: $primary-color
 
   &__image
-    flex-grow: 1
     aspect-ratio: 16 / 9
     object-fit: cover
     max-width: 100%
@@ -22,6 +21,7 @@
 
   &__link
     align-self: center
+    margin-top: auto
     padding: 10px
     border: 1px solid $primary-color
     border-radius: 5px
@@ -33,3 +33,13 @@
 
     +hover-safe
       transform: scale(1.05)
+
+.stack
+  +flex-row
+
+  &__label
+    font-weight: 500
+
+  &__text
+    font-style: italic
+
