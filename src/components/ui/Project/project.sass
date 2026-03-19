@@ -20,26 +20,8 @@
     background-color: $bg-color
     box-shadow: $main-shadow
 
-  &__footer
-    +flex-row
-    flex-wrap: wrap
-    justify-content: center
-
-    @media (min-width: 768px)
-      gap: 30px
-
-  &__btns
-    +flex-column
-    flex-shrink: 0 // чтобы текст в кнопках не переносился
-
-    @media (min-width: 384px)
-      flex-direction: row
-      gap: 30px
-
-    @media (min-width: 768px)
-      gap: 30px
-
-  &__btn
+  &__link
+    align-self: center
     padding: 10px
     border: 1px solid $primary-color
     border-radius: 5px
@@ -51,8 +33,3 @@
 
     +hover-safe
       transform: scale(1.05)
-
-  &__date
-    margin-left: auto
-    font-weight: 500
-    color: $primary-color

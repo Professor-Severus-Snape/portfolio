@@ -15,9 +15,7 @@ export interface IProjectItem {
   id: number;
   src: string;
   title: string;
-  code: string;
   deploy: string;
-  date: string;
 }
 
 const projectsList: IProjectItem[] = [
@@ -25,98 +23,73 @@ const projectsList: IProjectItem[] = [
     id: 1,
     src: diploma,
     title: 'Система бронирования ж/д билетов',
-    code: 'https://github.com/Professor-Severus-Snape/FE_diploma',
     deploy: 'https://professor-severus-snape.github.io/FE_diploma',
-    date: '04.2025',
   },
   {
     id: 2,
     src: films,
     title: 'Поиск фильмов по каталогу',
-    code: 'https://github.com/Professor-Severus-Snape/RA_toolkit',
     deploy: 'https://professor-severus-snape.github.io/RA_toolkit',
-    date: '12.2024',
   },
   {
     id: 3,
     src: watches,
     title: 'Мировые часы',
-    code: 'https://github.com/Professor-Severus-Snape/RA_lifecycle-watches',
     deploy: 'https://professor-severus-snape.github.io/RA_lifecycle-watches',
-    date: '10.2024',
   },
   {
     id: 4,
     src: chat,
     title: 'Чат (WebSockets)',
-    code: 'https://github.com/Professor-Severus-Snape/chat',
     deploy: 'https://professor-severus-snape.github.io/chat',
-    date: '10.2024',
   },
   {
     id: 5,
     src: trello,
     title: 'Доска Trello (drag and drop)',
-    code: 'https://github.com/Professor-Severus-Snape/trello',
     deploy: 'https://professor-severus-snape.github.io/trello',
-    date: '10.2024',
   },
   {
     id: 6,
     src: validator,
     title: 'Валидатор карт',
-    code: 'https://github.com/Professor-Severus-Snape/card-validator',
     deploy: 'https://professor-severus-snape.github.io/card-validator',
-    date: '10.2024',
   },
   {
     id: 7,
     src: tracker,
     title: 'Трекер задач',
-    code: 'https://github.com/Professor-Severus-Snape/task-tracker',
     deploy: 'https://professor-severus-snape.github.io/task-tracker',
-    date: '07.2024',
   },
   {
     id: 8,
     src: goblins,
     title: 'Игра с гоблинами',
-    code: 'https://github.com/Professor-Severus-Snape/goblin',
     deploy: 'https://professor-severus-snape.github.io/goblin',
-    date: '07.2024',
   },
   {
     id: 9,
     src: tictactoe,
     title: 'Крестики-нолики',
-    code: 'https://github.com/Professor-Severus-Snape/tictactoe',
-    deploy:
-      'https://professor-severus-snape.github.io/tictactoe',
-    date: '11.2023',
+    deploy: 'https://professor-severus-snape.github.io/tictactoe',
   },
   {
     id: 10,
     src: landing,
     title: 'Лендинг',
-    code: 'https://github.com/Professor-Severus-Snape/layout_noemi',
     deploy: 'https://professor-severus-snape.github.io/layout_noemi',
-    date: '11.2023',
   },
   {
     id: 11,
     src: animatedLanding,
     title: 'Анимированный лендинг',
-    code: 'https://github.com/Professor-Severus-Snape/layout_balloons',
     deploy: 'https://professor-severus-snape.github.io/layout_balloons',
-    date: '08.2023',
   },
   {
     id: 12,
     src: guitar,
     title: 'Лендинг школы гитаристов',
-    code: 'https://github.com/Professor-Severus-Snape/layout_guitar',
     deploy: 'https://professor-severus-snape.github.io/layout_guitar',
-    date: '08.2023',
   },
 ];
 
