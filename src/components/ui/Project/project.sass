@@ -2,7 +2,7 @@
   +flex-column
   padding: 20px
   border-radius: 25px
-  background-color: rgba($accent-color, 0.5)
+  background-color: #e5bebe
   box-shadow: $main-shadow
 
   &__title
@@ -20,19 +20,40 @@
     box-shadow: $main-shadow
 
   &__link
-    align-self: center
-    margin-top: auto
-    padding: 10px
-    border: 1px solid $primary-color
-    border-radius: 5px
+    align-self: flex-start
+
+    display: inline-flex
+    align-items: center
+    gap: 6px
+    position: relative
+    color: $accent-color
+    text-decoration: none
     font-weight: 500
-    font-size: 18px
-    color: $primary-color
-    box-shadow: $main-shadow
-    background-color: $bg-color
+    transition: color 0.25s ease
+
+    // динамическое подчеркивание:
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: -2px
+      width: 0
+      height: 2px
+      background-color: currentColor
+      transition: width 0.25s ease
+
+    &__icon
+      transition: transform 0.25s ease
 
     +hover-safe
-      transform: scale(1.05)
+      &:hover
+        opacity: 0.85
+
+        &::after
+          width: 100% // подчёркивание
+
+        & .project__icon
+          transform: translate(3px, -3px) rotate(20deg) // подпрыгивание и поворот
 
 .stack
   +flex-row
@@ -42,4 +63,3 @@
 
   &__text
     font-style: italic
-

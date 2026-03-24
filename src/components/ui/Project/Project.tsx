@@ -18,7 +18,19 @@ const Project = ({ src, title, stack, deploy }: IProjectProps) => {
         <span className="stack__text">{stack}</span>
       </div>
       <a href={deploy} className="project__link" target="_blank" rel="noopener noreferrer">
-        Открыть сайт
+        Открыть
+        <span className="project__icon">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M5 19L19 5M19 5H9M19 5V15" />
+          </svg>
+        </span>
       </a>
     </li>
   );
