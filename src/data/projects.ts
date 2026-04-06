@@ -39,7 +39,7 @@ const projectsList: IProjectItem[] = [
     src: watches,
     title: 'Мировые часы',
     stack: 'React, TypeScript, useState, useEffect, setInterval, Vite',
-    deploy: 'https://professor-severus-snape.github.io/RA_lifecycle-watches',
+    deploy: 'https://professor-severus-snape.github.io/world-clock',
   },
   {
     id: 4,
