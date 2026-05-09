@@ -32,7 +32,7 @@ const projectsList: IProjectItem[] = [
     src: films,
     title: 'Поиск фильмов по каталогу',
     stack: 'React, React Router, Redux Toolkit, TypeScript, Vite',
-    deploy: 'https://professor-severus-snape.github.io/RA_toolkit',
+    deploy: 'https://professor-severus-snape.github.io/movie-search',
   },
   {
     id: 3,
