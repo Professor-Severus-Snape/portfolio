@@ -25,7 +25,7 @@ const projectsList: IProjectItem[] = [
     src: diploma,
     title: 'Система бронирования ж/д билетов',
     stack: 'React, React Router, Redux Toolkit, TypeScript, date-fns, Vite',
-    deploy: 'https://professor-severus-snape.github.io/FE_diploma',
+    deploy: 'https://professor-severus-snape.github.io/railway-ticket-booking-system',
   },
   {
     id: 2,
